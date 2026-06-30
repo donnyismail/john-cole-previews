@@ -1,0 +1,13 @@
+{
+  "name": "john-cole-sites",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cole's Capital Group + Pines & Ponies — Teflon Don LLC",
+  "scripts": {
+    "test:unit": "node --test test/*.test.js",
+    "test:audit": "node scripts/audit.js",
+    "test": "npm run test:unit && npm run test:audit"
+  },
+  "license": "UNLICENSED"
+}
