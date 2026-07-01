@@ -4,7 +4,7 @@ pageTitle: Pines & Ponies | Adirondack Vacation Rentals, Upstate NY
 canonical: /
 ---
 <main id="main">
-<header class="hero">
+<header class="hero"{% if site.heroImage %} style="--hero-img:url('{{ site.heroImage | imgUrl('pines') }}')"{% endif %}>
   <div class="hero-grain"></div>
   <div class="wrap hero-in">
     <p class="eyebrow rv">Adirondack Cabins &amp; Equestrian Estates</p>

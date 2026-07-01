@@ -2,30 +2,6 @@ import { IdAttributePlugin } from '@11ty/eleventy';
 import Image from '@11ty/eleventy-img';
 import path from 'node:path';
 
-// Responsive image shortcode: local files -> AVIF/WebP/fallback, lazy, no CLS.
-async function imageShortcode(src, alt, sizes = '100vw', cls = '') {
-  if (!src) return '';
-  if (alt === undefined) throw new Error(`Missing alt text for image: ${src}`);
-  // remote (placeholder) images: render a plain lazy <img>, swapped for real assets later
-  if (/^https?:\/\//.test(src)) {
-    return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"${cls ? ` class="${cls}"` : ''} />`;
-  }
-  const inputDir = path.join('src', src.replace(/^\//, ''));
-  const metadata = await Image(inputDir, {
-    widths: [400, 800, 1200, 1600],
-    formats: ['avif', 'webp', 'jpeg'],
-    outputDir: './dist/img/',
-    urlPath: '/img/',
-  });
-  return Image.generateHTML(metadata, {
-    alt,
-    sizes,
-    loading: 'lazy',
-    decoding: 'async',
-    ...(cls ? { class: cls } : {}),
-  });
-}
-
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(IdAttributePlugin);
 
@@ -44,8 +20,6 @@ export default function (eleventyConfig) {
   // The CMS admin pages are static (passthrough only) — don't run them through templating/layouts.
   eleventyConfig.ignores.add('src/pines/admin/index.html');
   eleventyConfig.ignores.add('src/coles/admin/index.html');
-
-  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
   // imgUrl: returns an optimized WebP URL for local images (CMS uploads),
   // passes remote/placeholder URLs through untouched. Output lands inside the

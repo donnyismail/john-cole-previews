@@ -83,7 +83,7 @@
     background:
       linear-gradient(180deg,rgba(19,33,27,.25) 0%,rgba(19,33,27,.55) 60%,rgba(19,33,27,.92) 100%),
       linear-gradient(120deg,rgba(28,48,39,.5),rgba(177,87,47,.18)),
-      url("https://picsum.photos/seed/adirondackpines/1900/1200") center/cover no-repeat,
+      var(--hero-img, url("https://picsum.photos/seed/adirondackpines/1900/1200")) center/cover no-repeat,
       var(--pine);
   }
   .hero-grain{position:absolute;inset:0;opacity:.5;pointer-events:none;

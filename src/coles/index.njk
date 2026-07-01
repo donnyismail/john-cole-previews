@@ -3,7 +3,7 @@ title: Cole's Capital Group
 pageTitle: Cole's Capital Group | Real Estate Holdings, Albany NY
 canonical: /
 ---
-<header class="hero">
+<header class="hero"{% if site.heroImage %} style="--hero-img:url('{{ site.heroImage | imgUrl('coles') }}')"{% endif %}>
   <div class="wrap hero-in">
     <p class="eyebrow rv">Albany · New York's Capital Region</p>
     <h1 class="rv">Building value.<br><em>Creating legacy.</em></h1>

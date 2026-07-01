@@ -20,7 +20,7 @@ collections:
     create: true
     extension: md
     format: yaml-frontmatter
-    summary: "{{year}} — {{title}}"
+    summary: "{{year}} · {{title}}"
     sortable_fields: [year, title]
     fields:
       - { label: "Project name", name: title, widget: string }
@@ -56,7 +56,7 @@ collections:
     create: true
     extension: md
     format: yaml-frontmatter
-    summary: "{{source}} — {{title}}"
+    summary: "{{source}} · {{title}}"
     sortable_fields: [order, title]
     fields:
       - { label: "Headline", name: title, widget: string }
@@ -123,6 +123,7 @@ collections:
               - { label: Instagram, name: instagram, widget: string, required: false }
               - { label: Facebook, name: facebook, widget: string, required: false }
               - { label: LinkedIn, name: linkedin, widget: string, required: false }
+          - { label: "Hero photo (big top image — optional)", name: heroImage, widget: image, required: false, hint: "wide landscape photo works best" }
           - { label: "Preview ribbon (uncheck at launch)", name: previewMode, widget: boolean, default: true }
           - { label: "Form key (Web3Forms access key — enables real form submissions)", name: web3formsKey, widget: string, required: false, hint: "leave blank to use email fallback" }
           - { label: "Analytics token (Cloudflare Web Analytics)", name: analyticsToken, widget: string, required: false }
