@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: donnyismail/john-cole-previews
+  repo: donnyismail/colescapitalgroup
   branch: main
 
 local_backend: true
 
-media_folder: "src/coles/assets/uploads"
+media_folder: "src/assets/uploads"
 public_folder: "assets/uploads"
 
 site_url: https://colescapitalgroup.com
@@ -16,7 +16,7 @@ collections:
     label: Track Record (Completed Projects)
     label_singular: Project
     description: "Completed projects shown in the Track Record section."
-    folder: "src/coles/projects"
+    folder: "src/projects"
     create: true
     extension: md
     format: yaml-frontmatter
@@ -33,7 +33,7 @@ collections:
     label: Pipeline (Upcoming Projects)
     label_singular: Upcoming project
     description: "Projects in the pipeline, shown in the 'What we're building next' section."
-    folder: "src/coles/pipeline"
+    folder: "src/pipeline"
     create: true
     extension: md
     format: yaml-frontmatter
@@ -52,7 +52,7 @@ collections:
     label: Press / In the News
     label_singular: Article
     description: "Press coverage shown in the 'As featured in the press' section."
-    folder: "src/coles/press"
+    folder: "src/press"
     create: true
     extension: md
     format: yaml-frontmatter
@@ -69,7 +69,7 @@ collections:
     label: Portfolio Classes
     label_singular: Portfolio class
     description: "The four asset classes shown in the Portfolio section."
-    folder: "src/coles/portfolio"
+    folder: "src/portfolio"
     create: true
     extension: md
     format: yaml-frontmatter
@@ -87,7 +87,7 @@ collections:
     label: Headline Stats
     label_singular: Stat
     description: "The four big numbers under the hero."
-    folder: "src/coles/stats"
+    folder: "src/stats"
     create: true
     extension: md
     format: yaml-frontmatter
@@ -105,7 +105,7 @@ collections:
     files:
       - name: site
         label: "Cole's Capital settings"
-        file: "src/coles/_data/site.json"
+        file: "src/_data/site.json"
         fields:
           - { label: "Business name", name: name, widget: string }
           - { label: "Tagline", name: tagline, widget: string }

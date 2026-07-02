@@ -1,6 +1,6 @@
 # Production setup (dev notes — Donny)
 
-The repo builds two static sites with Eleventy into `dist/` (`dist/pines`, `dist/coles`) and
+The repo builds two static sites with Eleventy into `dist/` (`dist (in the pinesandponies repo)`, `dist (in the colescapitalgroup repo)`) and
 auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`. That's the live preview today.
 
 For the real client launch on the two domains, do this:
@@ -9,7 +9,7 @@ For the real client launch on the two domains, do this:
 Each site is its own Cloudflare Pages project so `_headers`/CSP apply and each gets its own domain.
 
 - **Build command:** `npm run build`
-- **Build output directory:** `dist/pines` (for the Pines project) or `dist/coles` (for the Cole's project)
+- **Build output directory:** `dist (in the pinesandponies repo)` (for the Pines project) or `dist (in the colescapitalgroup repo)` (for the Cole's project)
 - **Root directory:** repo root
 - Add the custom domain in the project (pinesandponies.com / colescapitalgroup.com).
 - `_headers` already lives at `dist/<site>/_headers` and is picked up automatically.
@@ -37,7 +37,7 @@ converted to optimized 1200w WebP at build time (measured ~90% size reduction). 
 ## 4. OwnerRez (Pines bookings)
 When properties go live: create OwnerRez account, add properties, connect Airbnb/Vrbo, generate the
 Book Now widget, and replace the preview booking card in `property.njk` with the embed. Uncomment the
-OwnerRez sources in `dist/pines/_headers` CSP (already documented inline).
+OwnerRez sources in `dist (in the pinesandponies repo)/_headers` CSP (already documented inline).
 
 ## 5. Lead capture + analytics (both CMS-configurable, zero code)
 - **Booking/inquiry forms (Web3Forms, free):** go to web3forms.com, enter the destination email

@@ -2,33 +2,18 @@
 // Scans built HTML pages and asserts production requirements.
 // Exit non-zero on any failure so it gates `npm test` and the build loop.
 
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-// Property pages are DERIVED from the content folder so anything added via the
-// CMS is automatically quality-gated too.
-const propertySlugs = readdirSync(join(ROOT, 'src/pines/properties'))
-  .filter((f) => f.endsWith('.md'))
-  .map((f) => {
-    const fm = readFileSync(join(ROOT, 'src/pines/properties', f), 'utf8').match(/^slug:\s*(\S+)/m);
-    return fm && fm[1];
-  })
-  .filter(Boolean);
-
 // Built pages that must be fully production-grade (scanned in dist/).
-const PAGES = [
-  'dist/coles/index.html',
-  'dist/pines/index.html',
-  ...propertySlugs.map((s) => `dist/pines/${s}.html`),
-];
+const PAGES = ['dist/index.html'];
 
-// Required site-level files, by site root (in dist/).
+// Required site-level files (in dist/).
 const SITE_FILES = {
-  'dist/coles': ['dist/coles/robots.txt', 'dist/coles/sitemap.xml', 'dist/coles/_headers'],
-  'dist/pines': ['dist/pines/robots.txt', 'dist/pines/sitemap.xml', 'dist/pines/_headers'],
+  dist: ['dist/robots.txt', 'dist/sitemap.xml', 'dist/_headers'],
 };
 
 const failures = [];

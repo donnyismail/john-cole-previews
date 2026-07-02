@@ -1,15 +1,14 @@
 {
-  "name": "john-cole-sites",
+  "name": "colescapitalgroup",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Cole's Capital Group + Pines & Ponies — Teflon Don LLC",
+  "description": "Cole's Capital Group \u2014 corporate real estate site (colescapitalgroup.com)",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve",
-    "test:unit": "node --test test/*.test.js",
     "test:audit": "node scripts/audit.js",
-    "test": "npm run build && npm run test:unit && npm run test:audit"
+    "test": "npm run build && npm run test:audit"
   },
   "license": "UNLICENSED",
   "dependencies": {

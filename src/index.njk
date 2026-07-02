@@ -1,61 +1,100 @@
 ---
-permalink: /
-layout: false
-eleventyExcludeFromCollections: true
+title: Cole's Capital Group
+pageTitle: Cole's Capital Group | Real Estate Holdings, Albany NY
+canonical: /
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Website Previews for John Cole — Teflon Don LLC</title>
-<meta name="robots" content="noindex" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:"Archivo",sans-serif;background:#0e1116;color:#efeae0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center}
-  .eyebrow{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:#c4a35a;font-weight:600;margin-bottom:18px}
-  h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(34px,6vw,60px);line-height:1.05;margin-bottom:14px}
-  h1 em{font-style:italic;color:#d8be84}
-  .sub{color:#9aa1ad;max-width:54ch;margin:0 auto 50px;font-size:16px}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:840px;width:100%}
-  .c{display:block;border:1px solid rgba(196,163,90,.25);border-radius:6px;overflow:hidden;text-decoration:none;color:inherit;transition:.3s;background:#161c25}
-  .c:hover{transform:translateY(-6px);border-color:#c4a35a}
-  .c .top{height:180px;background-size:cover;background-position:center;position:relative}
-  .c .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,22,.1),rgba(14,17,22,.65))}
-  .c .b{padding:24px}
-  .c h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:28px;margin-bottom:6px}
-  .c p{font-size:13.5px;color:#9aa1ad}
-  .c .go{display:inline-block;margin-top:16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#d8be84}
-  .admin-note{margin-top:30px;font-size:12.5px;color:#6b7280}
-  .admin-note a{color:#9aa1ad}
-  footer{margin-top:40px;font-size:12px;color:#6b7280;letter-spacing:.04em}
-  @media(max-width:640px){.cards{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-  <p class="eyebrow">Prepared for John Cole</p>
-  <h1>Two sites, <em>built right.</em></h1>
-  <p class="sub">Custom designed, fast, and fully self-managed. You edit your own properties, photos, projects, and press from a simple admin, no code.</p>
-  <div class="cards">
-    <a class="c" href="coles/">
-      <div class="top" style="background-image:url('https://picsum.photos/seed/albanyskyline/700/360')"></div>
-      <div class="b">
-        <h2>Cole's Capital Group</h2>
-        <p>The corporate site. Classy, investor-oriented, credibility-first.</p>
-        <span class="go">View site →</span>
-      </div>
-    </a>
-    <a class="c" href="pines/">
-      <div class="top" style="background-image:url('https://picsum.photos/seed/adirondackpines/700/360')"></div>
-      <div class="b">
-        <h2>Pines &amp; Ponies</h2>
-        <p>The direct-booking rental site. Book direct, skip the platform fees.</p>
-        <span class="go">View site →</span>
-      </div>
-    </a>
+<header class="hero"{% if site.heroImage %} style="--hero-img:url('{{ site.heroImage | imgUrl }}')"{% endif %}>
+  <div class="wrap hero-in">
+    <p class="eyebrow rv">Albany · New York's Capital Region</p>
+    <h1 class="rv">Building value.<br><em>Creating legacy.</em></h1>
+    <p class="rv">A privately held real estate investment and management company acquiring, developing, and stewarding distinctive properties across Upstate New York.</p>
+    <div class="cta-row rv">
+      <a href="#portfolio" class="btn btn-fill">View Portfolio</a>
+      <a href="#contact" class="btn">Speak With Us</a>
+    </div>
   </div>
-  <p class="admin-note">Content managers: <a href="coles/admin/">Cole's admin</a> &nbsp;·&nbsp; <a href="pines/admin/">Pines admin</a></p>
-  <footer>Teflon Don LLC · teflondon.dev · Houston, TX</footer>
-</body>
-</html>
+</header>
+
+<section class="stats" style="padding:0">
+  <div class="wrap stats-in">
+    {% for s in collections.stats %}<div class="stat rv"><b>{{ s.data.value }}</b><span>{{ s.data.label }}</span></div>{% endfor %}
+  </div>
+</section>
+
+<main id="main">
+<section id="about">
+  <div class="wrap who">
+    <div class="rv">
+      <p class="sec-label">Who We Are</p>
+      <h2>A steady hand on <em>Capital Region</em> real estate.</h2>
+      <p>Cole's Capital Group acquires, improves, and holds quality real estate for the long term. We are not flippers chasing a quick exit, we are owners building durable, income-producing assets and the relationships that sustain them.</p>
+      <p>From residential holdings to commercial space and hospitality, our portfolio reflects a disciplined approach: buy well, manage closely, and create lasting value for partners, tenants, and the communities we invest in.</p>
+    </div>
+    <div class="who-img rv"></div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="wrap">
+    <div class="pf-head rv">
+      <div>
+        <p class="sec-label">The Portfolio</p>
+        <h2>Four classes. One standard.</h2>
+      </div>
+      <a href="#contact" class="btn">Request the Full Deck</a>
+    </div>
+    <div class="pf-grid">
+      {% for p in collections.portfolio %}
+      <div class="pf rv"><div class="bg" style="background-image:url('{{ p.data.image | imgUrl }}')"></div><div class="cap"><small>{{ p.data.label }}</small><h3>{{ p.data.title }}</h3><p>{{ p.data.blurb }}</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap ledger">
+    <p class="sec-label">Track Record</p>
+    <h2>A history of finishing well.</h2>
+    {% for p in collections.projects %}
+    <div class="row rv"><span class="yr">{{ p.data.year | yy }}</span><div class="desc"><h3>{{ p.data.title }}</h3><p>{{ p.data.note }}</p></div><span class="val">{{ p.data.category }}</span></div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="upcoming" id="upcoming">
+  <div class="wrap">
+    <p class="sec-label rv">In the Pipeline</p>
+    <h2 class="rv" style="font-size:clamp(32px,4.2vw,54px);font-weight:400">What we're building next.</h2>
+    <div class="up-grid">
+      {% for p in collections.pipeline %}
+      <div class="up rv"><span class="status{% if p.data.soft %} soft{% endif %}">{{ p.data.status }}</span><h3>{{ p.data.title }}</h3><p class="town">{{ p.data.town }}</p><p>{{ p.data.note }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="press" id="press">
+  <div class="wrap">
+    <p class="sec-label rv">In the News</p>
+    <h2 class="rv">As featured in the press.</h2>
+    <p class="lede rv">Coverage of our projects and growth across the Capital Region.</p>
+    <div class="press-grid">
+      {% for p in collections.press %}
+      <a class="clip rv" href="{{ p.data.url }}"{% if p.data.url and p.data.url != "#" %} target="_blank" rel="noopener"{% endif %} aria-label="Read the {{ p.data.source }} feature">
+        <span class="src">{{ p.data.source }}</span>
+        <h3>{{ p.data.title }}</h3>
+        <span class="more">Read the feature</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="invite">
+  <div class="wrap">
+    <h2 class="rv">Let's build something <em>that lasts.</em></h2>
+    <p class="rv">Whether you're an investor, a partner, or a prospective tenant, we'd welcome the conversation.</p>
+    <a href="#contact" class="btn btn-fill rv">Start the Conversation</a>
+  </div>
+</section>
+</main>
